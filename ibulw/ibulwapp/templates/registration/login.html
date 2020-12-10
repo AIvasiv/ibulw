@@ -13,9 +13,11 @@
 </head>
 <body>
     <div class="header" style="text-align:center;">
-        <h1>This page is in progress</h1>
-        <h2>No worries, in a short period of time you will be able to track your expenses</h2>
-        <a href="{% url 'tracker-sign-in'%}">Log In</a>
+        <form method="POST">
+            {% csrf_token %}
+            {{form}}
+            <button type="submit">Sign In</button>
+        </form>
     </div>
 </body>
 </html>
