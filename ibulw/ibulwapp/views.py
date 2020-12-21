@@ -9,3 +9,4 @@ def home(request):
 def tracker_home(request):
     return render(request, 'tracker/tracker_home.html')
 
+ 

@@ -1,0 +1,19 @@
+body {
+    background-color:yellow;
+}
+
+.container .row .left_main_nav {
+    background-color:green; 
+}
+.fill{
+    height: 100%;
+    min-height: 100%;
+    margin-left:0!important;
+}
+header {
+    text-align:center;
+    background-color:red;
+    height:30px;
+}
+
+
