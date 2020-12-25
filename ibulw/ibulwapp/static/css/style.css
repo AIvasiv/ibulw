@@ -1,9 +1,10 @@
 body {
-    background-color:yellow;
+    background-color:white;
+    
 }
 
 .container .row .left_main_nav {
-    background-color:green; 
+    height: 100%;
 }
 .fill{
     height: 100%;
