@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, HttpResponse
 from .models import Expense_Items
 from .models import Categories
+from .forms import ExpenseForm
 
 # Create your views here.
 def home(request):
@@ -13,16 +14,29 @@ def tracker_home(request):
     context = {'expenses_list' : Expense_Items.objects.all()}
     return render(request, 'tracker/tracker_home.html', context)
 
-def insert_expense(request:HttpRequest):
-    new_expense_item = Expense_Items(content = request.POST['content'])
-    new_expense_item.save()
-    return redirect('/tracker/')
+def list_expenses(request):
+    context = {'expenses_list' : Expense_Items.objects.all()}
+    return render(request, 'tracker/expenses_list.html', context)
 
-def insert_category(request:HttpRequest): 
-    new_category = Categories(category_name = request.POST['category_name'])
-    new_category.save()
+def form_expenses(request, id=0):
+    if request.method == 'GET':
+        if id == 0:
+            form = ExpenseForm()
+        else:
+            expense = Expense_Items.objects.get(pk = id)
+            form = ExpenseForm(instance=expense)
+        return render(request, 'tracker/expenses_form.html', {'form':form})
+    else:
+        if id == 0:
+            form = ExpenseForm(request.POST)
+        else:
+            expense = Expense_Items.objects.get(pk = id)
+            form = ExpenseForm(request.POST, instance = expense)
+        if form.is_valid():
+            form.save()
+        return redirect('/tracker/')
+        
+def delete_expenses(request, id):
+    expense = Expense_Items.objects.get(pk = id)
+    expense.delete()
     return redirect('/tracker/')
-
-def open_admin(request):
-    return render(request, 'admin/add_categories.html', {})
- 

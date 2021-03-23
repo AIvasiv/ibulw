@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'ibulw/css/style.css' %}">
+
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">-->
+</head>
+<body>
+    <body>
+        <main>
+        <section class="glass">
+        <div class="dashboard">
+            <div class="user">
+            <img src="{% static 'ibulw/img/avatarnew.png' %}" alt="user-avatar" width="100" height="100">
+            <h3>Andrii Ivasiv</h3>
+            <p>Creator</p>
+            </div>
+            <div class="links">
+            <div class="link">
+                <img src="{% static 'ibulw/img/twitch.png' %}">
+                <h2>Expenses</h2>
+            </div>
+            <div class="link">
+                <img src="{% static 'ibulw/img/steam.png' %}">
+                <h2>Analytics</h2>
+            </div>
+            <div class="link">
+                <img src="{% static 'ibulw/img/upcoming.png' %}">
+                <h2>Subscriptions</h2>
+            </div>
+            <div class="link">
+                <img src="{% static 'ibulw/img/library.png' %}">
+                <h2>Archieve</h2>
+            </div>
+            </div>
+            <div class="pro">
+            <h2>Become a PRO Member.</h2>
+            <img src="{% static 'ibulw/img/controller.png' %}">
+            </div>
+        </div>
+    {% block content %}
+    {% endblock %}
+        </section>
+    </main>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+</body>
+</html>
